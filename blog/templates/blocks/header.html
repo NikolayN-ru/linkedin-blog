@@ -1,0 +1,64 @@
+{% load static %}
+<header>
+  <div class="headerLogo">
+    <a href="{% url 'home' %}">
+      <img src="{% static 'img/Logo.png' %}" alt="logo" />
+    </a>
+  </div>
+  <ul class="headerMenu">
+    <li class="headerMenuItem">
+      <a href="{% url 'feed' %}"
+        ><img src="{% static 'img/feed.svg' %}" alt="" /> <span>FEED</span></a
+      >
+    </li>
+    <li class="headerMenuItem">
+      <a href="{% url 'network' %}"
+        ><img src="{% static 'img/network.svg' %}" alt="" />
+        <span>NETWORK</span></a
+      >
+    </li>
+    <li class="headerMenuItem">
+      <a href="{% url 'jobs' %}"
+        ><img src="{% static 'img/jobs.svg' %}" alt="" /> <span>JOBS</span></a
+      >
+    </li>
+    <li class="headerMenuItem">
+      <a href="{% url 'chat' %}"
+        ><img src="{% static 'img/chat.svg' %}" alt="" />
+        <span class="headerMenuItemMessage"
+          >CHAT
+          <div class="headerMenuItemMessageNumber">1</div>
+        </span></a
+      >
+    </li>
+    <li class="headerMenuItem">
+      <a href="{% url 'notices' %}"
+        ><img src="{% static 'img/notices.svg' %}" alt="" />
+        <span>NOTICES</span></a
+      >
+    </li>
+  </ul>
+  <div class="headerSearch">
+    <img src="{% static 'img/search.svg' %}" alt="search" />
+    <input type="text" placeholder="search" />
+  </div>
+  <div class="headerUser">
+    <img src="{% static 'img/avatarHead.jpg' %}" alt="avatar" />
+    <div class="headeUserInformation">
+      <div class="headeUserInformationName">
+        <span>D. Kargaev</span>
+        <span>YOU</span>
+      </div>
+      <div class="headeUserInformationCount">
+        <span>367 views today</span>
+        <span class="headeUserInformationCountArrow">+32</span>
+        <img src="{% static 'img/arrow-up-right.svg' %}" alt="arrow" />
+      </div>
+      <p></p>
+    </div>
+  </div>
+  <div class="headerAdditional">
+    <img src="{% static 'img/more.svg' %}" alt="" />
+    OTHER
+  </div>
+</header>

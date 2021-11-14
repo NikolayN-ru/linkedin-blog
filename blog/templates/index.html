@@ -1,0 +1,165 @@
+{% extends 'blocks/base.html' %}
+{% load static %} 
+
+{% block content %}
+<section class="lenta">
+	<div class="newPost">
+	  <input type="text" placeholder="new post" />
+	  <div class="newPostBlock">
+		<span>What’s on your mind?</span>
+		<div class="newPostBtns">
+		  <img src="{% static 'img/screp.svg' %}" alt="screp" />
+		  <img src="{% static 'img/image.svg' %}" alt="image" />
+		  <img src="{% static 'img/move.svg' %}" alt="move" />
+		  <button class="newPostSend">
+			<img src="{% static 'img/send.svg' %}" alt="send" />
+		  </button>
+		</div>
+	  </div>
+	</div>
+	<div class="lentaSort">
+	  <div class="lentaSortLine"></div>
+	  <div class="lentaSortText">
+		<span>Sort by:</span>
+		<span> trending</span>
+		<img src="{% static 'img/arrow-down.svg' %}" alt="arrow" />
+	  </div>
+	  <div class="lentaSortLine"></div>
+	</div>
+	<div class="postText">
+	  <div class="postTextTitle">
+		<span>Ted Bell, Annette Nguyen and Cody Hawkins liked this</span>
+		<img src="{% static 'img/more.svg' %}" alt="more" />
+	  </div>
+	  <div class="postTextContent">
+		<div class="postTextContentAvatar">
+		  <img src="{% static 'img/Photo.jpg' %}" alt="Photo" />
+		  <div class="postTextContentAvatarText">
+			<p>Theresa Steward</p>
+			<span>iOS developer</span>
+		  </div>
+		</div>
+		<span class="postTextContentData">
+		  What did the Dursleys care if Harry lost his place on the House
+		  Quidditch team because he hadn’t practiced all summer? What was it
+		  to the Dursleys if Harry went back to school without any of his
+		  homework done? The Dursleys were what wizards called Muggles (not
+		  a drop of magical blood in their veins).
+		</span>
+		<p>Read more</p>
+		<div class="postTextInteraction">
+		  <div class="postTextInteractionMain">
+			<div class="postTextInteractionLike">
+			  <img src="{% static 'img/like.svg' %}" alt="like" /> 42
+			</div>
+			<div class="postTextInteractionComment">
+			  <img src="{% static 'img/comment.svg' %}" alt="comment" /> 9
+			</div>
+		  </div>
+		  <img
+			class="postTextInteractionComment imgComment"
+			src="{% static 'img/share.svg' %}"
+			alt="share"
+		  />
+		</div>
+	  </div>
+	</div>
+
+	<div class="postText">
+	  <div class="postTextTitle">
+		<span>Ted Bell, Annette Nguyen and Cody Hawkins liked this</span>
+		<img src="{% static 'img/more.svg' %}" alt="more" />
+	  </div>
+	  <div class="postTextContent">
+		<div class="postTextContentAvatar">
+		  <img src="{% static 'img/Photo.jpg' %}" alt="Photo" />
+		  <div class="postTextContentAvatarText">
+			<p>Theresa Steward</p>
+			<span>iOS developer</span>
+		  </div>
+		</div>
+		<h3 class="postTextContentHead">How’s your day going, guys?</h3>
+		<img
+		  class="postTextContentImage"
+		  src="{% static 'img/capl.jpg' %}"
+		  alt="capl"
+		/>
+		<div class="postTextInteraction">
+		  <div class="postTextInteractionMain">
+			<div class="postTextInteractionLike">
+			  <img src="{% static 'img/like.svg' %}" alt="like" /> 42
+			</div>
+			<div class="postTextInteractionComment">
+			  <img src="{% static 'img/comment.svg' %}" alt="comment" /> 9
+			</div>
+		  </div>
+		  <img
+			class="postTextInteractionComment imgComment"
+			src="{% static 'img/share.svg' %}"
+			alt="share"
+		  />
+		</div>
+	  </div>
+	</div>
+
+	<div class="postText">
+	  <div class="postTextTitle">
+		<span>Ted Bell, Annette Nguyen and Cody Hawkins liked this</span>
+		<img src="{% static 'img/more.svg' %}" alt="more" />
+	  </div>
+	  <div class="postTextContent">
+		<div class="postTextContentAvatar">
+		  <img src="{% static 'img/Photo.jpg' %}" alt="Photo" />
+		  <div class="postTextContentAvatarText">
+			<p>Theresa Steward</p>
+			<span>iOS developer</span>
+		  </div>
+		</div>
+		<h3 class="postTextContentHead">
+		  There is some new guidelines for iOS
+		</h3>
+
+		<div class="postTextContentFile">
+		  <div class="postTextContentFileBtn">
+			<img src="{% static 'img/file-text.svg' %}" alt="file-text" />
+		  </div>
+		  <div class="postTextContentDescription">
+			<span>iOS 11 guidelines for UX/UI designers</span>
+			<p>PDF file, 324 kb</p>
+		  </div>
+		  <div class="postTextContentFileDowload">
+			<img src="{% static 'img/cloud.svg' %}" alt="cloud" />
+		  </div>
+		</div>
+		<div class="postTextContentFile">
+		  <div class="postTextContentFileBtn">
+			<img src="{% static 'img/file-text.svg' %}" alt="file-text" />
+		  </div>
+		  <div class="postTextContentDescription">
+			<span>iOS 12 updates</span>
+			<p>ttf file, 118 kb</p>
+		  </div>
+		  <div class="postTextContentFileDowload">
+			<img src="{% static 'img/cloud.svg' %}" alt="cloud" />
+		  </div>
+		</div>
+
+		<div class="postTextInteraction">
+		  <div class="postTextInteractionMain">
+			<div class="postTextInteractionLike">
+			  <img src="{% static 'img/like.svg' %}" alt="like" /> 42
+			</div>
+			<div class="postTextInteractionComment">
+			  <img src="{% static 'img/comment.svg' %}" alt="comment" /> 9
+			</div>
+		  </div>
+		  <img
+			class="postTextInteractionComment imgComment"
+			src="{% static 'img/share.svg' %}"
+			alt="share"
+		  />
+		</div>
+	  </div>
+	</div>
+  </section>
+{% endblock content %}
