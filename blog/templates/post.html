@@ -1,28 +1,11 @@
-{% extends 'blocks/base.html' %} 
+{% extends 'blocks/base.html' %}
 {% load static %} 
+
 {% block content %}
 <section class="lenta">
-  <div class="newPost">
-    <form method="POST" , action="{% url 'home' %}">
-      {% csrf_token %}
-      <input type="text" placeholder="new post" />
-      <div class="newPostBlock">
-        <span>What’s on your mind?</span>
-        <div class="newPostBtns">
-          <img src="{% static 'img/screp.svg' %}" alt="screp" />
-          <img src="{% static 'img/image.svg' %}" alt="image" />
-          <img src="{% static 'img/move.svg' %}" alt="move" />
-          <button class="newPostSend" type="submit">
-            <img src="{% static 'img/send.svg' %}" alt="send" />
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
-  FEED
-  {% for post in posts %}
+POST
 
-  <div class="postText">
+<div class="postText">
     <div class="postTextTitle">
       <span>{{ post.title }}</span>
       <img src="{% static 'img/more.svg' %}" alt="more" />
@@ -37,7 +20,7 @@
       </div>
       <span class="postTextContentData"> {{ post.content }} </span>
 
-      <!-- ХАРДКОД! -->
+            <!-- ХАРДКОД! -->
       {%if post.image %}
       <img
         class="postTextContentImage"
@@ -65,10 +48,5 @@
     </div>
   </div>
 
-  <!-- <img src="{% static 'post.image' %}" alt=""> -->
-
-  {% endfor %}
-  {% include 'blocks/paginate.html' with page=page_obj %}
-  <!-- {% include 'blocks/paginate.html' with page=posts %}  -->
-</section>
+  </section>
 {% endblock content %}

@@ -14,8 +14,15 @@
 * {
   font-family: "GothamPro", sans-serif;
 }
+body{
+  margin: 0 auto;
+}
 
 header {
+  position: sticky;
+  top: 0px;
+  background-color: #fff;
+  z-index: 2;
   max-width: 1440px;
   margin: 0 auto;
   display: flex;
@@ -255,8 +262,10 @@ main {
   line-height: 150%;
   margin-bottom: 15px;
 }
-
-.postTextContent p {
+.postTextContent a {
+  text-decoration: none;
+}
+.postTextContent a p {
   color: #0275b1;
   text-transform: uppercase;
   padding-top: 20px;
