@@ -1,7 +1,10 @@
 from django.shortcuts import render
-from .models import Post
+from .models import Post, Comment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
+from .forms import EmailPostForm, CommentForm
+from django.core.mail import send_mail
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -39,4 +42,37 @@ def notices(request):
 
 def post(request, id):
 	post = Post.objects.get(pk = id)
-	return render(request, 'post.html', {'post':post})
+	comments = post.comments.all()
+	new_comment = None
+	if request.method == 'POST':
+		comment_form = CommentForm(data=request.POST)
+		if comment_form.is_valid():
+			new_comment = comment_form.save(commit=False)
+			new_comment.post = post
+			new_comment.save()
+	else:
+		comment_form = CommentForm()
+	return render(request, 'post.html', {'post':post,
+	'comments': comments,
+	'new_comment': new_comment,
+	'comment_form':comment_form})
+
+
+
+
+def post_share(request, post_id):
+	post = Post.objects.get(pk = post_id)
+	sent = False
+	if request.method == 'POST':
+		form = EmailPostForm(request.POST)
+		if form.is_valid():
+			cd = form.cleaned_data
+			post_url = request.build_absolute_uri(post.get_absolute_url())
+			subject = '{}({}) recommends you reading "{}" '.format(cd['name'], cd['email'], post.title)
+			message = 'Read "{}" at {}\n\n{}\'s comments: {}'.format(post.title, post_url, cd['name'], cd['comments'])
+			send_mail(subject, message, 'admin@myblog.com', [cd['to']])
+			sent = True
+	else:
+		messages.success(request, 'форма валидна-заполняйте')
+		form = EmailPostForm()
+	return render(request, 'network.html', {'post': post, 'form': form, 'sent': sent})

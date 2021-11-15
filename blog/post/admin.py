@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import *
 
-admin.site.register(Comment)
 admin.site.register(Tag)
 admin.site.register(Article)
 admin.site.register(Group)
@@ -14,6 +13,12 @@ class PostAdmin(admin.ModelAdmin):
 	prepopulated_fields = {'slug':('title',)}
 	ordering = ('is_archive', 'date')
 
-
-
 # admin.site.register(Post)
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+	list_display = ('user', 'post', 'title')
+	list_filter = ('user',)
+	search_fields = ('title',)
+
+# admin.site.register(Comment)

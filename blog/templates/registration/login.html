@@ -1,0 +1,15 @@
+{% extends 'blocks/base.html' %} {% block content %}
+<section class="lenta">
+  login {% if form.errors %}
+  <p>вы чегото нетаво - попробуйте снова</p>
+  {% else %}
+  <p>заполните форму ниже</p>
+  {% endif %}
+
+  <form action="{% url 'login' %}" method="POST">
+    {{form.as_p}} {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    <p><input type="submit" value="log-in" /></p>
+  </form>
+</section>
+{% endblock content %}

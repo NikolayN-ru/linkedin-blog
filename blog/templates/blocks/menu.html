@@ -1,5 +1,16 @@
 {% load static %}
+{% load blog_tags %}
 <menu>
+  <p>всего постов - {% total_posts %}</p>
+
+  {% if request.user.is_authenticated %}
+  <p>вы вошли</p>
+  hello {{ request.user.username }}
+  <a href="{% url 'logout' %}">выход</a>
+  {% else %}
+  <a href="{% url 'login' %}">вход</a>
+  {% endif %}
+
   <div class="menuLogo">
     <img class="menuLogoFon" src="{% static 'img/fon.jpg' %}" alt="fon" />
     <img

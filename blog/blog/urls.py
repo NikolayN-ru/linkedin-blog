@@ -21,9 +21,14 @@ from post.sitemaps import PostSitemap
 sitemaps = {'posts': PostSitemap,}
 
 urlpatterns = [
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/v1/', include('api.urls')),
+    path('api/v2/', include('api.urls')),
+    path('account/', include('account.urls')),
     path('admin/', admin.site.urls),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},  
 	 name='django.contrib.sitemaps.views.sitemap'),
     # path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
     path('', include('post.urls')),
+    
 ]

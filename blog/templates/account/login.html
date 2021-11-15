@@ -1,0 +1,10 @@
+{% extends 'blocks/base.html' %} {% load static %} {% block content %}
+<section class="lenta">
+  login
+
+  <form action="." method="POST">
+    {{form.as_p}} {% csrf_token%}
+    <input type="submit" value="Login" />
+  </form>
+</section>
+{% endblock content %}

@@ -1,8 +1,15 @@
-{% extends 'blocks/base.html' %}
-{% load static %} 
-
-{% block content %}
+{% extends 'blocks/base.html' %} {% load static %} {% block content %}
 <section class="lenta">
-NETWORK
-  </section>
+  {% if messages %} {% for message in messages %} <p>{{ message }}</p><hr> {% endfor %}
+   {%endif %} NETWORK {% if sent %}
+  <h1>E-mail successfuly sent</h1>
+  <p>{{ post.title }} был успешно отправлен -> {{ form.cleaned_data.to }}.</p>
+  {% else %}
+  <h1>Share {{post.title }} by e-mail</h1>
+  <form action="." mathod="post">
+    {{form.as_p}} {% csrf_token %}
+    <input type="submit" value="send e-mail" />
+  </form>
+  {% endif %}
+</section>
 {% endblock content %}
